@@ -29,6 +29,27 @@ export const searchQuery = (searchTerm) => {
   return query;
 };
 
+export const feedQuery = `*[_type == "pin" | order(_createdAt desc)]{
+  image{
+    asset -> {url}
+  },
+  _id,
+  destination,
+  postedBy -> {
+    _id,
+    username,
+    image
+  },
+  save[]{
+    _key,
+    postedBy -> {
+      _id,
+      username,
+      image
+    },
+  },
+}`;
+
 export const categories = [
   {
     name: "cars",
