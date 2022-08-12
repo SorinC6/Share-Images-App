@@ -6,19 +6,14 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
 import { client, urlFor } from "../client";
+import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin }) => {
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
-
   const navigate = useNavigate();
-
   const { postedBy, image, _id, destination } = pin;
-
-  const user =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
+  const user = fetchUser();
 
   const deletePin = (id) => {
     client.delete(id).then(() => {
@@ -56,7 +51,9 @@ const Pin = ({ pin }) => {
         });
     }
   };
-  console.log("postedBy?.image", postedBy?.image);
+
+  console.log("postedBy", postedBy);
+  console.log("user", user);
   return (
     <div className="m-2">
       <div
