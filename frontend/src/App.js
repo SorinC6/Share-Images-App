@@ -15,10 +15,7 @@ const App = () => {
 
   //   if (!User) navigate("/login");
   // }, []);
-  console.log(
-    "process.env.REACT_APP_GOOGLE_API_TOKEN",
-    process.env.REACT_APP_GOOGLE_API_TOKEN
-  );
+
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
       <Routes>
