@@ -1,3 +1,5 @@
+import { client } from "../client";
+
 export const userQuery = (userId) => {
   const query = `*[_type == "user" && _id == '${userId}']`;
 
@@ -53,6 +55,12 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc){
     },
   },
 }`;
+
+export const deletePin = (id) => {
+  client.delete(id).then(() => {
+    window.location.reload();
+  });
+};
 
 export const categories = [
   {
