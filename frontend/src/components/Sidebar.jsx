@@ -65,6 +65,7 @@ const Sidebar = ({ closeToggle, user }) => {
           onClick={handleCloseSidebar}
         >
           <img
+            referrerpolicy="no-referrer"
             src={user.image}
             className="w-10 h-10 rounded-full"
             alt="user-profile"

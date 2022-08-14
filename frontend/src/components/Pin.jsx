@@ -47,8 +47,6 @@ const Pin = ({ pin }) => {
     }
   };
 
-  console.log("postedBy", postedBy);
-  console.log("user", user);
   return (
     <div className="m-2">
       <div
