@@ -57,6 +57,7 @@ const Pin = ({ pin }) => {
       >
         {image && (
           <img
+            referrerpolicy="no-referrer"
             className="rounded-lg w-full "
             src={urlFor(image).width(250).url()}
             alt="user-post"
@@ -134,6 +135,7 @@ const Pin = ({ pin }) => {
         className="flex gap-2 mt-2 items-center"
       >
         <img
+          referrerpolicy="no-referrer"
           className="w-8 h-8 rounded-full object-cover"
           src={postedBy?.image}
           alt="user-profile"

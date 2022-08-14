@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
-import { GoogleLogout } from "react-google-login";
+import { googleLogout } from "@react-oauth/google";
 
 import {
   userCreatedPinsQuery,
@@ -9,7 +9,7 @@ import {
   userSavedPinsQuery,
 } from "../utils/data";
 import { client } from "../client";
-import MasonryLayout from "./MasonryLayout";
+import MasonryLayout from "./MansoryLayout";
 import Spinner from "./Spinner";
 
 const activeBtnStyles =
@@ -54,6 +54,7 @@ const UserProfile = () => {
   }, [text, userId]);
 
   const logout = () => {
+    googleLogout();
     localStorage.clear();
 
     navigate("/login");
@@ -67,11 +68,12 @@ const UserProfile = () => {
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
             <img
-              className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
+              className=" w-full h-64 2xl:h-64 shadow-lg object-cover"
               src="https://source.unsplash.com/1600x900/?nature,photography,technology"
               alt="user-pic"
             />
             <img
+              referrerpolicy="no-referrer"
               className="rounded-full w-20 h-20 -mt-10 shadow-xl object-cover"
               src={user.image}
               alt="user-pic"
@@ -81,22 +83,14 @@ const UserProfile = () => {
             {user.userName}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
-            {userId === User.googleId && (
-              <GoogleLogout
-                clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
-                render={(renderProps) => (
-                  <button
-                    type="button"
-                    className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    <AiOutlineLogout color="red" fontSize={21} />
-                  </button>
-                )}
-                onLogoutSuccess={logout}
-                cookiePolicy="single_host_origin"
-              />
+            {userId === User.sub && (
+              <button
+                type="button"
+                onClick={logout}
+                className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
+              >
+                <AiOutlineLogout color="red" fontSize={21} />
+              </button>
             )}
           </div>
         </div>
