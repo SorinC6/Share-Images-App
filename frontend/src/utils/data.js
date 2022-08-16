@@ -174,6 +174,7 @@ export const userSavedPinsQuery = (userId) => {
   }`;
   return query;
 };
+
 export const categories = [
   {
     name: "cars",
