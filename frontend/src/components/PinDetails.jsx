@@ -12,7 +12,7 @@ const PinDetail = ({ user }) => {
   console.log("user", user);
   const { pinId } = useParams();
   const [pins, setPins] = useState();
-  const [pinDetail, setPinDetail] = useState();
+  const [pinDetail, setPinDetail] = useState(null);
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
   console.log("pinDetail", pinDetail);
@@ -36,7 +36,7 @@ const PinDetail = ({ user }) => {
 
   useEffect(() => {
     fetchPinDetails();
-  }, [pinId]);
+  }, [pinId, addingComment]);
 
   const addComment = () => {
     if (comment) {
