@@ -92,7 +92,7 @@ const CreatePin = ({ user }) => {
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col justify-center items-center">
-                    <p className="font-bold text-2xl">
+                    <p className="font-semibold text-2xl">
                       <AiOutlineCloudUpload />
                     </p>
                     <p className="text-lg">Click to upload</p>
@@ -135,7 +135,7 @@ const CreatePin = ({ user }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title"
-            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+            className="outline-none text-2xl sm:text-3xl font-semibold border-b-2 border-gray-200 p-2"
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
@@ -144,7 +144,7 @@ const CreatePin = ({ user }) => {
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
               />
-              <p className="font-bold">{user.userName}</p>
+              <p className="font-semibold">{user.userName}</p>
             </div>
           )}
           <input
@@ -190,7 +190,7 @@ const CreatePin = ({ user }) => {
               <button
                 type="button"
                 onClick={savePin}
-                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+                className="bg-red-500 text-white font-semibold p-2 rounded-full w-28 outline-none"
               >
                 Save Pin
               </button>

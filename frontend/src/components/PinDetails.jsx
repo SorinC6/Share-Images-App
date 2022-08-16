@@ -96,7 +96,7 @@ const PinDetail = ({ user }) => {
               </a>
             </div>
             <div>
-              <h1 className="text-4xl font-bold break-words mt-3">
+              <h1 className="text-4xl font-semibold break-words mt-3">
                 {pinDetail.title}
               </h1>
               <p className="mt-3">{pinDetail.about}</p>
@@ -111,7 +111,7 @@ const PinDetail = ({ user }) => {
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
               />
-              <p className="font-bold">{pinDetail?.postedBy.userName}</p>
+              <p className="font-semibold">{pinDetail?.postedBy.userName}</p>
             </Link>
             <h2 className="mt-5 text-2xl">Comments</h2>
             <div className="max-h-370 overflow-y-auto">
@@ -127,7 +127,7 @@ const PinDetail = ({ user }) => {
                     alt="user-profile"
                   />
                   <div className="flex flex-col">
-                    <p className="font-bold">{item.postedBy?.userName}</p>
+                    <p className="font-semibold">{item.postedBy?.userName}</p>
                     <p>{item.comment}</p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ const PinDetail = ({ user }) => {
         </div>
       )}
       {pins?.length > 0 && (
-        <h2 className="text-center font-bold text-2xl mt-8 mb-4">
+        <h2 className="text-center font-semibold text-2xl mt-8 mb-4">
           More like this
         </h2>
       )}

@@ -13,9 +13,9 @@ import MasonryLayout from "./MansoryLayout";
 import Spinner from "./Spinner";
 
 const activeBtnStyles =
-  "bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none";
+  "bg-red-500 text-white font-semibold p-2 rounded-full w-20 outline-none";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
+  "bg-primary mr-4 text-black font-semibold p-2 rounded-full w-20 outline-none";
 
 const UserProfile = () => {
   const [user, setUser] = useState();
@@ -63,7 +63,7 @@ const UserProfile = () => {
   if (!user) return <Spinner message="Loading profile" />;
 
   return (
-    <div className="relative pb-2 h-full justify-center items-center">
+    <div className="relative pb-2 h-full justify-center items-center bg-gray-50">
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
@@ -79,7 +79,7 @@ const UserProfile = () => {
               alt="user-pic"
             />
           </div>
-          <h1 className="font-bold text-3xl text-center mt-3">
+          <h1 className="font-semibold text-3xl text-center mt-3">
             {user.userName}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
@@ -126,7 +126,7 @@ const UserProfile = () => {
         </div>
 
         {pins?.length === 0 && (
-          <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
+          <div className="flex justify-center font-semibold items-center w-full text-1xl mt-2">
             No Pins Found!
           </div>
         )}

@@ -48,12 +48,12 @@ const Pin = ({ pin }) => {
   };
 
   return (
-    <div className="m-2">
+    <div className="m-2 border border-sky-500 rounded-lg pb-2 hover:border border-sky-700">
       <div
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
         onClick={() => navigate(`/pin-detail/${_id}`)}
-        className=" relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+        className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out "
       >
         {image && (
           <img
@@ -84,7 +84,7 @@ const Pin = ({ pin }) => {
               {alreadySaved?.length !== 0 ? (
                 <button
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-semibold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                 >
                   {pin?.save?.length} Saved
                 </button>
@@ -95,7 +95,7 @@ const Pin = ({ pin }) => {
                     savePin(_id);
                   }}
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-semibold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                 >
                   {pin?.save?.length} {savingPost ? "Saving" : "Save"}
                 </button>
@@ -106,7 +106,7 @@ const Pin = ({ pin }) => {
                 <a
                   href={destination}
                   target="_blank"
-                  className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md"
+                  className="bg-white flex items-center gap-2 text-black text-base font-semibold p-2 pl-4 pr-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md"
                   rel="noreferrer"
                 >
                   {" "}
@@ -132,7 +132,7 @@ const Pin = ({ pin }) => {
       </div>
       <Link
         to={`/user-profile/${postedBy?._id}`}
-        className="flex gap-2 mt-2 items-center"
+        className="flex gap-2 mt-2 ml-1 items-center"
       >
         <img
           referrerpolicy="no-referrer"
