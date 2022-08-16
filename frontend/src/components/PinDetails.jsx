@@ -15,15 +15,12 @@ const PinDetail = ({ user }) => {
   const [pinDetail, setPinDetail] = useState(null);
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
-  console.log("pinDetail", pinDetail);
   const fetchPinDetails = () => {
     const query = pinDetailQuery(pinId);
 
     if (query) {
       client.fetch(`${query}`).then((data) => {
-        console.log("data", data);
         setPinDetail(data[0]);
-        console.log(data);
         if (data[0]) {
           const query1 = pinDetailMorePinQuery(data[0]);
           client.fetch(query1).then((res) => {
@@ -54,7 +51,6 @@ const PinDetail = ({ user }) => {
         ])
         .commit()
         .then(() => {
-          console.log("COMMENT ADDED");
           fetchPinDetails();
           setComment("");
           setAddingComment(false);
