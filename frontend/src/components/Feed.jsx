@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { client } from "../client";
 import { feedQuery, searchQuery } from "../utils/data";
+import HeroSection from "./HeroSection";
 import MasonryLayout from "./MansoryLayout";
 import Spinner from "./Spinner";
 
@@ -11,7 +12,7 @@ const Feed = () => {
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
   const text = categoryId || "new";
-
+  console.log("categoryId", categoryId);
   useEffect(() => {
     if (categoryId) {
       setLoading(true);
@@ -30,12 +31,15 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  console.log("pins", pins);
-
   if (loading) {
-    return <Spinner message={`We are adding ${text} ideas to your feed!`} />;
+    return <Spinner />;
   }
-  return <div>{pins && <MasonryLayout pins={pins} />}</div>;
+  return (
+    <div>
+      {categoryId === undefined && <HeroSection />}
+      {pins && <MasonryLayout pins={pins} />}
+    </div>
+  );
 };
 
 export default Feed;
